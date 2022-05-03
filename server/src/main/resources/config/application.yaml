@@ -1,9 +1,0 @@
-logging:
-  config: classpath:logback/logback-local.xml
-
----
-spring:
-  datasource:
-    url: jdbc:mysql://localhost/gc-coffee
-    username: root
-    password: jungki503\
