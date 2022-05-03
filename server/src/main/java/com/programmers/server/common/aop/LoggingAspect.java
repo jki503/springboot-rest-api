@@ -13,7 +13,19 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggingAspect {
     @Around("execution(* com.programmers.server..*Controller.*(..))")
-    public Object printLog(ProceedingJoinPoint joinPoint) throws Throwable{
+    public Object printControllerLog(ProceedingJoinPoint joinPoint) throws Throwable{
+        log.info("{} method called", joinPoint.getSignature());
+        return joinPoint.proceed();
+    }
+
+    @Around("execution(* com.programmers.server..*Service.*(..))")
+    public Object printServiceLog(ProceedingJoinPoint joinPoint) throws Throwable{
+        log.info("{} method called", joinPoint.getSignature());
+        return joinPoint.proceed();
+    }
+
+    @Around("execution(* com.programmers.server..*Repository.*(..))")
+    public Object printRepositoryLog(ProceedingJoinPoint joinPoint) throws Throwable{
         log.info("{} method called", joinPoint.getSignature());
         return joinPoint.proceed();
     }
