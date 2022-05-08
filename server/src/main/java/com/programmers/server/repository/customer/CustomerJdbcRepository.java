@@ -23,7 +23,7 @@ public class CustomerJdbcRepository implements CustomerRepository {
 
     @Override
     public CustomerDto insert(Customer customer) {
-        int update = jdbcTemplate.update("insert into customers(customer_id, name, email, create_at, last_login_at) " +
+        int update = jdbcTemplate.update("insert into customers(customer_id, name, email, created_at, last_login_at) " +
                 "values(UUID_TO_BIN(:customerId), :name, :email, :createdAt, :lastLoginAt)",
                 toCustomerParamMap(customer));
 
