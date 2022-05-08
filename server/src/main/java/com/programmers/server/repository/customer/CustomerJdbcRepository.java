@@ -57,7 +57,7 @@ public class CustomerJdbcRepository implements CustomerRepository {
         UUID customerId = toUUID(resultSet.getBytes("customer_id"));
         String name = resultSet.getString("name");
         String email = resultSet.getString("email");
-        LocalDateTime createdAt = toLocalDateTime(resultSet.getTimestamp("create_at"));
+        LocalDateTime createdAt = toLocalDateTime(resultSet.getTimestamp("created_at"));
         LocalDateTime lastLoginAt = toLocalDateTime(resultSet.getTimestamp("last_login_at"));
 
         return new Customer(customerId,new CustomerInfo(name,email), createdAt, lastLoginAt);
