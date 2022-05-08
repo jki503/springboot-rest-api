@@ -16,6 +16,15 @@ public class Product {
     private final LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
+    public Product(UUID productId, String name, Category category, int price) {
+        this.productId = productId;
+        this.name = name;
+        this.category = category;
+        this.price = price;
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+    }
+
     public Product(UUID productId, String name, Category category, int price, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.productId = productId;
         this.name = name;
