@@ -12,22 +12,30 @@ import java.util.regex.Pattern;
 public class Order{
 
     private final UUID orderId;
+    private final UUID customerId;
     private String email;
     private String address;
     private String postcode;
     private OrderStatus orderStatus;
-    private final List<OrderItem> orderItems;
     private final LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public Order(UUID orderId, String email, String address, String postcode, OrderStatus orderStatus, List<OrderItem> orderItems, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Order(
+            UUID orderId,
+            UUID customerId,
+            String email,
+            String address,
+            String postcode,
+            OrderStatus orderStatus,
+            LocalDateTime createdAt,
+            LocalDateTime updatedAt) {
+        this.customerId = customerId;
         validateEmail(email);
         this.orderId = orderId;
         this.email = email;
         this.address = address;
         this.postcode = postcode;
         this.orderStatus = orderStatus;
-        this.orderItems = orderItems;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
