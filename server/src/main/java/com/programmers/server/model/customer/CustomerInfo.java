@@ -21,7 +21,7 @@ public class CustomerInfo {
 
     private void validateName(String name){
         Assert.notNull(name, "이름은 공백일 수 없습니다.");
-        Assert.isTrue(name.length() >= 3 || name.length() <= 12,"이름의 길이는 3이상 12이하여야합니다.");
+        Assert.isTrue(name.length() >= 3 && name.length() <= 12,"이름의 길이는 3이상 12이하여야합니다.");
     }
 
     private void validateEmail(String email) {
